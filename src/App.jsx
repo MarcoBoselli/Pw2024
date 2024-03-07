@@ -13,6 +13,8 @@ import InserisciReferto from './components/InserisciReferto.jsx';
 
 function App(){
 
+  const token = sessionStorage.getItem('token');
+
   return (
     <>
       <BrowserRouter>
@@ -23,7 +25,7 @@ function App(){
             <Route path='/visite' element={<MyTable props={'visite'}/>}></Route>
             <Route path='/contattare' element={<MyTable props={'contattare'}/>}></Route>
             <Route path='/dettaglio/:cf' element={<Dettaglio />}></Route>
-            <Route path='/login' element={<><Login/><BottomNav/></>}></Route>
+            { !token && <Route path='/login' element={<><Login/><BottomNav/></>}></Route>}
             <Route path='/inserisci-pazienti' element={<><InserisciPazienti/><BottomNav/></>}></Route>
             <Route path='/inserisci-referto' element={<><InserisciReferto/><BottomNav/></>}></Route>
             

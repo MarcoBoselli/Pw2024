@@ -54,7 +54,7 @@ function TopNav(){
                 <Nav className="me-auto">
                   <ListGroup variant='flush'>
                     <ListGroup.Item><Nav.Link href="/">Home</Nav.Link></ListGroup.Item>
-                    <ListGroup.Item><Nav.Link href="/login">Login</Nav.Link></ListGroup.Item>
+                    { !token && <ListGroup.Item><Nav.Link href="/login">Login</Nav.Link></ListGroup.Item>}
                     <ListGroup.Item><Nav.Link href="/pazienti">Pazienti</Nav.Link></ListGroup.Item>
                     <ListGroup.Item> <Nav.Link href="/visite">Visite</Nav.Link></ListGroup.Item>
                     <ListGroup.Item><Nav.Link href="/contattare">Pazienti da contattare</Nav.Link></ListGroup.Item>
