@@ -7,6 +7,7 @@ import Alert from 'react-bootstrap/Alert';
 import Mail from './Mail';
 import ModificaVisita from './ModificaVisita';
 import { checkAuth } from '../hooks/Auth';
+import { DeleteVisita } from '../hooks/DeleteVisita';
 
 function MyTable({props}) {
 
@@ -76,6 +77,10 @@ function MyTable({props}) {
               {props === 'visite' && (
                 <td>
                   <ModificaVisita visita={patient}/>
+                  <Button variant='danger' style={{marginLeft : '10px'}} onClick={() => {
+                    DeleteVisita(patient.id);
+                    window.location.reload();
+                  }}>Elimina</Button>
                 </td>
               )}
               
