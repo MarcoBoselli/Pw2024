@@ -2,7 +2,7 @@ import Card from 'react-bootstrap/Card';
 
 function IndexCard() {
   return (
-    <Card style={{ width: '18rem' }}>
+    <Card className='index-card' style={{ width: '18rem' }}>
       <Card.Body>
         <img style={{width: '-webkit-fill-available'}} src='https://wpschool.it/clinica/boselli/img/users.png'></img>
         <Card.Title>Personale qualificato</Card.Title>

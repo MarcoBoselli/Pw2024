@@ -14,8 +14,22 @@
 
   .index-container{
     display: flex !important;
-    direction: row;
+    flex-direction: row;
     align-items: center;
+  }
+
+}
+
+@media  (orientation : portrait){
+
+  .index-container{
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center;
+  }
+
+  .index-card{
+    margin-top: 5%;
   }
 
 }

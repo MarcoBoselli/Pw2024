@@ -18,7 +18,7 @@ function App(){
       <BrowserRouter>
         <TopNav/>
           <Routes>  
-            <Route index element={<div className='index-container'><Scorrimento/><IndexCard className='index-card'/><BottomNav/></div>}></Route>
+            <Route index element={<div className='index-container'><Scorrimento/><IndexCard /><BottomNav/></div>}></Route>
             <Route path='/pazienti' element={<MyTable props={'pazienti'}/>}></Route>
             <Route path='/visite' element={<MyTable props={'visite'}/>}></Route>
             <Route path='/contattare' element={<MyTable props={'contattare'}/>}></Route>

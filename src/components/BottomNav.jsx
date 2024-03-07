@@ -8,10 +8,10 @@ function BottomNav() {
         <Col>
         <div>
           <p>
-          C.F. 97088810581 - P.I. 04970461002 
+          C.F. 9705550581 - P.I. 0497555002 
           </p>
           <p>
-          Viale Regina Margherita 278 - 00198 Roma
+          Via G. Matteotti, 26 - Sermide (MN) 46028
           </p>
         </div>
         </Col>
@@ -21,7 +21,7 @@ function BottomNav() {
           +39 555 0827512
           </p>
           <p>
-          clinicarossi@gmail.com
+          clinica.rossi.info@gmail.com
           </p>
         </div>
         </Col>
