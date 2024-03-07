@@ -23,7 +23,7 @@ function Dettaglio() {
           navigate('/login');
       }
 
-      fetch('https://wpschool.it/clinica/boselli/api/dettaglio.php?codice_fiscale=' + cf)
+      fetch('https://wpschool.it/clinica/clinica-Boselli/api/dettaglio.php?codice_fiscale=' + cf)
         .then(response => response.json())
         .then(data => {
           setPatientData(data.patientData);

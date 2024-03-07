@@ -18,7 +18,7 @@ function ModificaVisita(visita){
     const referto = document.getElementById('referto').value;
 
     try {
-        const response = await fetch('https://wpschool.it/clinica/boselli/api/modificaVisita.php', {
+        const response = await fetch('https://wpschool.it/clinica/clinica-Boselli/api/modificaVisita.php', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',

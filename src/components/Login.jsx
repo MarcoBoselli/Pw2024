@@ -13,7 +13,7 @@ function Login() {
       const username = document.getElementById('user').value;
       const password = document.getElementById('password').value;
   
-      const response = await fetch('https://wpschool.it/clinica/boselli/api/login.php', {
+      const response = await fetch('https://wpschool.it/clinica/clinica-Boselli/api/login.php', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

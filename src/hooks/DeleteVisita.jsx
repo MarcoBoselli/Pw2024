@@ -1,6 +1,6 @@
 export const DeleteVisita = (id) => {
 
-    return fetch('https://wpschool.it/clinica/boselli/api/deleteVisita.php', {
+    return fetch('https://wpschool.it/clinica/clinica-Boselli/api/deleteVisita.php', {
         method: 'DELETE',
         headers: {
             'Content-Type': 'application/json',

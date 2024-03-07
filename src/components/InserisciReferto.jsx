@@ -18,7 +18,7 @@ function inserisciReferto(){
                 navigate('/login');
             }
 
-        fetch('https://wpschool.it/clinica/boselli/api/pazienti.php')
+        fetch('https://wpschool.it/clinica/clinica-Boselli/api/pazienti.php')
             .then(response => response.json())
             .then(data => setPazienti(data))
             .catch(error => console.error('Error fetching data:', error));
@@ -37,7 +37,7 @@ function inserisciReferto(){
         };
     
         try {
-            const response = await fetch('https://wpschool.it/clinica/boselli/api/registraReferto.php', {
+            const response = await fetch('https://wpschool.it/clinica/clinica-Boselli/api/registraReferto.php', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

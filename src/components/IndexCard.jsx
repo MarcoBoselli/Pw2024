@@ -4,7 +4,7 @@ function IndexCard() {
   return (
     <Card className='index-card' style={{ width: '18rem' }}>
       <Card.Body>
-        <img style={{width: '-webkit-fill-available'}} src='https://wpschool.it/clinica/boselli/img/users.png'></img>
+        <img style={{width: '-webkit-fill-available'}} src='https://wpschool.it/clinica/clinica-Boselli/img/users.png'></img>
         <Card.Title>Personale qualificato</Card.Title>
         <Card.Text>
             Il nostro team di professionisti altamente qualificati è dedicato a fornire servizi di eccellenza, 

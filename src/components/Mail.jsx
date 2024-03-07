@@ -16,7 +16,7 @@ function Mail(mail) {
     const contentMail = document.getElementById('contenuto').value;
 
     try {
-      const response = await fetch('https://wpschool.it/clinica/boselli/api/email.php', {
+      const response = await fetch('https://wpschool.it/clinica/clinica-Boselli/api/email.php', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

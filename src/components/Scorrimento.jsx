@@ -5,21 +5,21 @@ function Scorrimento() {
   return (
     <Carousel className="custom-carousel">
       <Carousel.Item interval={2000}>
-        <img src="https://wpschool.it/clinica/boselli/img/hallway.jpg"/>
+        <img src="https://wpschool.it/clinica/clinica-Boselli/img/hallway.jpg"/>
         <Carousel.Caption className='custom-caption'>
           <h3>Naviga nel Mondo Medico</h3>
           <p>Dove la cura incontra l'innovazione, la nostra clinica è la tua risposta.</p>
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item interval={2000}>
-        <img src="https://wpschool.it/clinica/boselli/img/medical.jpg"/>
+        <img src="https://wpschool.it/clinica/clinica-Boselli/img/medical.jpg"/>
         <Carousel.Caption className='custom-caption'>
           <h3>Passione per la Cura, Ogni Giorno.</h3>
           <p>Alla ricerca costante di soluzioni mediche avanzate per il tuo benessere.</p>
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item interval={2000}>
-        <img src="https://wpschool.it/clinica/boselli/img/equipment.jpg"/>
+        <img src="https://wpschool.it/clinica/clinica-Boselli/img/equipment.jpg"/>
         <Carousel.Caption className='custom-caption'>
           <h3>Il Futuro della Medicina</h3>
           <p>

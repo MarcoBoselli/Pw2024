@@ -20,7 +20,7 @@ function MyTable({props}) {
             navigate('/login');
         }
 
-        fetch(`https://wpschool.it/clinica/boselli/api/${props}.php`)
+        fetch(`https://wpschool.it/clinica/clinica-Boselli/api/${props}.php`)
             .then(response => response.json())
             .then(data => setPatients(data))
             .catch(error => console.error('Error fetching data:', error));

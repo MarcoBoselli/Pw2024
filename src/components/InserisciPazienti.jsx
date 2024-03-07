@@ -27,7 +27,7 @@ function InserisciPazienti() {
         const cognome = document.getElementById('cognome').value;
         const data_n = document.getElementById('data_n').value;
 
-        const response = await fetch('https://wpschool.it/clinica/boselli/api/registraPaziente.php', {
+        const response = await fetch('https://wpschool.it/clinica/clinica-Boselli/api/registraPaziente.php', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

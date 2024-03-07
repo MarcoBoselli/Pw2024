@@ -2,7 +2,7 @@ export const checkAuth = () => {
     const token = sessionStorage.getItem('token');
 
     if (token) {
-        return fetch('https://wpschool.it/clinica/boselli/api/token.php', {
+        return fetch('https://wpschool.it/clinica/clinica-Boselli/api/token.php', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
