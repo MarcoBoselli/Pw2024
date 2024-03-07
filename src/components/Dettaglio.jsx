@@ -8,6 +8,7 @@ import { useParams } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import { Card } from 'react-bootstrap';
 import {Table} from 'react-bootstrap';
+import { checkAuth } from '../hooks/Auth';
 
 function Dettaglio() {
   const { cf } = useParams();
@@ -16,13 +17,22 @@ function Dettaglio() {
   const navigate = useNavigate();
 
   useEffect ( () => {
-    fetch('https://wpschool.it/clinica/boselli/api/dettaglio.php?codice_fiscale=' + cf)
-      .then(response => response.json())
-      .then(data => {
-        setPatientData(data.patientData);
-        setVisitData(data.visitData);
-      })
-      .catch(error => console.error('Error fetching data:', error));
+
+    checkAuth().then(isAuthenticated => {
+      if (!isAuthenticated) {
+          navigate('/login');
+      }
+
+      fetch('https://wpschool.it/clinica/boselli/api/dettaglio.php?codice_fiscale=' + cf)
+        .then(response => response.json())
+        .then(data => {
+          setPatientData(data.patientData);
+          setVisitData(data.visitData);
+        })
+        .catch(error => console.error('Error fetching data:', error));
+
+    });
+
   }, [cf]);
 
   const generatePDF = () => {
@@ -81,7 +91,13 @@ function Dettaglio() {
                 <Card.Text>Email: {patientData[0].email}</Card.Text>
                 <Card.Text>Telefono: {patientData[0].telefono}</Card.Text>
                 </Col>
-
+                <div style={{'margin-bottom' : '5%'}}>
+                <QRCode value={'https://pw2024.onrender.com/dettaglio/'+cf} />
+            
+                <Button style={{margin: '15px'}} variant="primary" onClick={generatePDF}>
+                    Genera PDF
+                </Button>
+                </div>
                 {visitData.length > 0 && (
                 <Table striped bordered hover>
                   <thead>
@@ -100,13 +116,7 @@ function Dettaglio() {
                   </tbody>
                 </Table>
               )}
-                <div >
-                <QRCode value={'https://react-bootstrap.netlify.app/docs/components/cards/'} />
-            
-                <Button style={{margin: '15px'}} variant="primary" onClick={generatePDF}>
-                    Genera PDF
-                </Button>
-                </div>
+                
               
             </div>
           ) : (

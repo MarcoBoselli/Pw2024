@@ -1,9 +1,12 @@
 import Table from 'react-bootstrap/Table';
 import Button from 'react-bootstrap/Button';
-import '../css/Clienti.css'
+import '../css/Tabella.css'
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Alert from 'react-bootstrap/Alert';
+import Mail from './Mail';
+import ModificaVisita from './ModificaVisita';
+import { checkAuth } from '../hooks/Auth';
 
 function MyTable({props}) {
 
@@ -11,59 +14,19 @@ function MyTable({props}) {
   const navigate = useNavigate();
 
   useEffect(() => {
-    
-    const token = sessionStorage.getItem('token');
+    checkAuth().then(isAuthenticated => {
+        if (!isAuthenticated) {
+            navigate('/login');
+        }
 
-    if (token) {
-
-      const headers = new Headers({
-        'Authorization': `Bearer ${token}`,
-      });
-
-      fetch('https://wpschool.it/clinica/boselli/api/token.php', {
-        method: 'GET',
-        headers,
-      })
-        .then(response => response.json())
-        .then(data => {
-          console.log('API Response:', data);
-          
-          fetch('https://wpschool.it/clinica/boselli/api/'+props+'.php')
+        fetch(`https://wpschool.it/clinica/boselli/api/${props}.php`)
             .then(response => response.json())
             .then(data => setPatients(data))
             .catch(error => console.error('Error fetching data:', error));
+    });
+}, [props]);
 
-        })
-        .catch(error => {
-          console.error('API Error:', error);
-          navigate('/')
-        });
-    } 
-    else 
-      navigate('/login');
-  }, [props]);
-
-  const sendEmail = async (recipientEmail) => {
-    try {
-      const response = await fetch('https://wpschool.it/clinica/boselli/api/email.php', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ recipientEmail }),
-      });
   
-      if (response.ok) {
-        const result = await response.json();
-        console.log(result.message);
-      } else {
-        const errorResult = await response.json();
-        console.error(errorResult.message);
-      }
-    } catch (error) {
-      console.error('Error sending email:', error);
-    }
-  };
 
   const generateTableHeaders = () => {
     if (patients.length === 0) return [];
@@ -89,7 +52,7 @@ function MyTable({props}) {
                 {header}
               </th>
             ))}
-            {props == 'pazienti' || props == 'contattare' ? (<th className="tab-width"></th>) : ''}
+            <th className="tab-width"></th>
           </tr>
         </thead>
         <tbody>
@@ -107,9 +70,12 @@ function MyTable({props}) {
               )}
               {props === 'contattare' && (
                 <td>
-                  <Button variant='warning' onClick={() => { sendEmail(patient.mail) }}>
-                    Contatta
-                  </Button>
+                  <Mail mail={patient.email}/>
+                </td>
+              )}
+              {props === 'visite' && (
+                <td>
+                  <ModificaVisita visita={patient}/>
                 </td>
               )}
               

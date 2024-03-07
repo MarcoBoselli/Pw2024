@@ -57,8 +57,9 @@ function TopNav(){
                     <ListGroup.Item><Nav.Link href="/login">Login</Nav.Link></ListGroup.Item>
                     <ListGroup.Item><Nav.Link href="/pazienti">Pazienti</Nav.Link></ListGroup.Item>
                     <ListGroup.Item> <Nav.Link href="/visite">Visite</Nav.Link></ListGroup.Item>
-                    <ListGroup.Item><Nav.Link href="/referti">Referti</Nav.Link></ListGroup.Item>
                     <ListGroup.Item><Nav.Link href="/contattare">Pazienti da contattare</Nav.Link></ListGroup.Item>
+                    <ListGroup.Item><Nav.Link href="/inserisci-pazienti">Inserisci un paziente</Nav.Link></ListGroup.Item>
+                    <ListGroup.Item><Nav.Link href="/inserisci-referto">Inserisci un referto</Nav.Link></ListGroup.Item>
                   </ListGroup>
                 </Nav>
               </Container>
