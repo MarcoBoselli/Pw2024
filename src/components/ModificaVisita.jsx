@@ -27,8 +27,8 @@ function ModificaVisita(visita){
         });
     
           const result = await response.json();
-          console.log(result);
-          
+          console.log(result.message);
+          window.location.reload();
       } catch (error) {
         console.error('Errore nella modifica:', error);
       }
@@ -43,7 +43,7 @@ function ModificaVisita(visita){
 
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>Modifica visita {visita.visita.id}</Modal.Title>
+          <Modal.Title>Modifica visita</Modal.Title>
         </Modal.Header>
 
         <Modal.Body>
