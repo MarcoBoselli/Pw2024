@@ -5,15 +5,18 @@ import InputGroup from 'react-bootstrap/InputGroup';
 import { useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
 import { checkAuth } from '../hooks/Auth';
+import { Alert } from 'react-bootstrap';
+import { useState } from 'react';
 
 function InserisciPazienti() {
 
     const navigate = useNavigate();
+    const [auth, setAuth] = useState(false);
 
     useEffect(() => {
         checkAuth().then(isAuthenticated => {
-            if (!isAuthenticated) {
-                navigate('/login');
+            if (isAuthenticated) {
+                setAuth(true)
             }
         })
     },[]);
@@ -47,7 +50,8 @@ function InserisciPazienti() {
 
     }
 
-
+    if(auth){
+    
     return (
     <Card>
         <Card.Header>Registra un nuovo paziente</Card.Header>
@@ -123,6 +127,15 @@ function InserisciPazienti() {
     </Card>
 
     );
+        
+}
+else{
+    return(
+        <Alert key='danger' variant='danger'>
+          Effettua il login per accedere alla pagina!
+        </Alert>
+    );
+}
 
 }
 

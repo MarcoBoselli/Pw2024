@@ -12,12 +12,13 @@ import { DeleteVisita } from '../hooks/DeleteVisita';
 function MyTable({props}) {
 
   const [patients, setPatients] = useState([]);
+  const [auth, setAuth] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
     checkAuth().then(isAuthenticated => {
-        if (!isAuthenticated) {
-            navigate('/login');
+        if (isAuthenticated) {
+            setAuth(true);
         }
 
         fetch(`https://wpschool.it/clinica/clinica-Boselli/api/${props}.php`)
@@ -25,7 +26,7 @@ function MyTable({props}) {
             .then(data => setPatients(data))
             .catch(error => console.error('Error fetching data:', error));
     });
-}, [props]);
+}, [props, patients]);
 
   
 
@@ -35,6 +36,8 @@ function MyTable({props}) {
     const firstPatient = patients[0];
     return Object.keys(firstPatient);
   };
+
+  if(auth){
 
   return (
     <>
@@ -79,7 +82,6 @@ function MyTable({props}) {
                   <ModificaVisita visita={patient}/>
                   <Button variant='danger' style={{marginLeft : '10px'}} onClick={() => {
                     DeleteVisita(patient.id);
-                    window.location.reload();
                   }}>Elimina</Button>
                 </td>
               )}
@@ -92,6 +94,14 @@ function MyTable({props}) {
     
     </>
   );
+}
+else{
+  return(
+    <Alert key='danger' variant='danger'>
+      Effettua il login per accedere alla pagina!
+    </Alert>
+  );
+}
 
 }
 

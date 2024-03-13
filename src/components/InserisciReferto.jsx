@@ -5,17 +5,19 @@ import InputGroup from 'react-bootstrap/InputGroup';
 import { useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { checkAuth } from '../hooks/Auth';
+import Alert from 'react-bootstrap/Alert';
 
 function inserisciReferto(){
 
     const navigate = useNavigate();
     const [pazienti, setPazienti] = useState([]);
+    const [auth, setAuth] = useState(false);
 
     useEffect(() => {
-
+        
         checkAuth().then(isAuthenticated => {
-            if (!isAuthenticated) {
-                navigate('/login');
+            if (isAuthenticated) {
+                setAuth(true);
             }
 
         fetch('https://wpschool.it/clinica/clinica-Boselli/api/pazienti.php')
@@ -59,6 +61,7 @@ function inserisciReferto(){
         }
     };
 
+    if(auth){
     return(
         <>
         {
@@ -112,6 +115,14 @@ function inserisciReferto(){
     ) : (<></>)}
     </>
     );
+}
+else{
+    return(
+        <Alert key='danger' variant='danger'>
+          Effettua il login per accedere alla pagina!
+        </Alert>
+    );
+}
 
 }
 
